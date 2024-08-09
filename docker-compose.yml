@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-clickarte-crm
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clickarte
+      MYSQL_ALLOW_PUBLIC_KEY_RETRIEVAL: 'true'
+    volumes:
+      - /Users/leonardo.barros/dev/mysql-clickarte:/var/lib/mysql
+    ports:
+      - "3306:3306"
