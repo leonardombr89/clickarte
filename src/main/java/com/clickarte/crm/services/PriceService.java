@@ -1,4 +1,6 @@
-package com.clickarte.crm.Product.Price;
+package com.clickarte.crm.services;
+
+import com.clickarte.crm.repositories.PriceRepository;
 
 public class PriceService {
 

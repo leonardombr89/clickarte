@@ -1,6 +1,7 @@
-package com.clickarte.crm.Product.Category.Group;
+package com.clickarte.crm.services;
 
 import org.springframework.stereotype.Service;
+import com.clickarte.crm.repositories.GroupRepository;
 
 @Service
 public class GroupService {
