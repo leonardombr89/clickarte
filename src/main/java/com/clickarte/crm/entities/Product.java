@@ -1,7 +1,5 @@
 package com.clickarte.crm.Product;
 
-
-
 import java.util.List;
 import com.clickarte.crm.Product.Category.Group.Group;
 import com.clickarte.crm.Product.Price.Price;
