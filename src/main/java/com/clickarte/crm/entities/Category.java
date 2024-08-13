@@ -18,8 +18,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import com.clickarte.crm.dtos.category.CreateCategoryDto;
 
@@ -52,19 +51,19 @@ public class Category {
     private List<Group> groups;
 
     @Column(nullable = true)
-    private Date createdAt;
+    private LocalDate createdAt;
 
     @Column(nullable = true)
-    private Date updatedAt;
+    private LocalDate updatedAt;
 
     @PrePersist
     public void createdAt() {
-        createdAt = updatedAt = new Date();
+        createdAt = updatedAt = LocalDate.now();
     }
 
     @PreUpdate
     public void updateAt() {
-        this.updatedAt = new Date();
+        this.updatedAt = LocalDate.now();
     }
 
 
