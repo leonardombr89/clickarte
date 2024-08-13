@@ -9,15 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.clickarte.crm.dtos.category.CreateCategoryDto;
 import com.clickarte.crm.entities.Category;
 import com.clickarte.crm.services.CategoryService;
 import com.clickarte.crm.utils.ControllerUtil;
-import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -29,8 +27,8 @@ public class CategoryController implements CategoryApi {
         this.categoryService = categoryService;
     }
 
-    @PostMapping()
-    public ResponseEntity<Category> create(@RequestBody @Valid CreateCategoryDto createCategory,
+
+    public ResponseEntity<Category> create(CreateCategoryDto createCategory,
             UriComponentsBuilder uriComponentsBuilder) {
         var newCategory = categoryService.createCategory(createCategory);
         var uri =
@@ -38,18 +36,16 @@ public class CategoryController implements CategoryApi {
         return ResponseEntity.created(uri).body(newCategory);
     }
 
-    @GetMapping()
     public Page<Category> list(Pageable pageable) {
         return categoryService.list(pageable);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Category> find(@PathVariable Long id) {
+
+    public ResponseEntity<Category> find(Long id) {
         return ResponseEntity.ok(categoryService.find(id));
     }
 
-    @DeleteMapping("/{id}/delete")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(Long id) {
         categoryService.delete(id);
         return ResponseEntity.noContent().build();
     }
