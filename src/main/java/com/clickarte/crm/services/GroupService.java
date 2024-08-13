@@ -10,6 +10,7 @@ import com.clickarte.crm.dtos.group.CreateGroupCategoryDto;
 import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Group;
 import com.clickarte.crm.repositories.GroupRepository;
+import com.clickarte.crm.utils.converters.GroupConverter;
 
 @Service
 public class GroupService {
@@ -24,7 +25,7 @@ public class GroupService {
     @Transactional
     public DetailGroupDto create(CreateGroupCategoryDto createGroupCategory) {
         var category = categoryService.find(createGroupCategory.categoryId());
-        var group = new Group(createGroupCategory.name(), category);
+        var group = GroupConverter.createGroupDtoToGroup(createGroupCategory, category);
         this.groupRepository.save(group);
         var response = new DetailGroupDto(group.getId(), group.getName(), new DetailCategoryDto(
                 category.getId(), category.getName(), category.getDescription()));

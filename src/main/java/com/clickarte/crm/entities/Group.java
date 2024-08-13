@@ -32,13 +32,4 @@ public class Group {
     private @ManyToOne @JoinColumn(name = "category_id", nullable = false) Category category;
     private @OneToMany(mappedBy = "group", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY) List<Product> products;
-
-
-    public Group(String name, Category category) {
-        this.name = name;
-        this.category = category;
-    }
-
-
-
 }
