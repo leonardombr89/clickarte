@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.clickarte.crm.dtos.group.CreateGroupCategoryDto;
+import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Group;
 import com.clickarte.crm.services.GroupService;
-
+import com.clickarte.crm.utils.ControllerUtil;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/group")
 public class GroupController implements GroupApi {
 
     private final GroupService groupService;
@@ -33,7 +33,7 @@ public class GroupController implements GroupApi {
             UriComponentsBuilder uriComponentsBuilder) {
 
         var group = groupService.create(createGroupCategory);
-        var uri = uriComponentsBuilder.path("/group/{id}").buildAndExpand(group.id()).toUri();
+        var uri = ControllerUtil.getUri(uriComponentsBuilder, "/group/{id}", group.id());
         return ResponseEntity.created(uri).body(group);
     }
 

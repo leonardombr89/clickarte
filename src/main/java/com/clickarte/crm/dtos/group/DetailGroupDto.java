@@ -1,7 +1,6 @@
-package com.clickarte.crm.controllers.group;
+package com.clickarte.crm.dtos.group;
 
-import com.clickarte.crm.controllers.category.DetailCategoryDto;
-
+import com.clickarte.crm.dtos.category.DetailCategoryDto;
 import com.clickarte.crm.entities.Group;
 
 public record DetailGroupDto(Long id, String name, DetailCategoryDto category) {

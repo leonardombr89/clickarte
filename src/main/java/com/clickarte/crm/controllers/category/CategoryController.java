@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.clickarte.crm.dtos.category.CreateCategoryDto;
 import com.clickarte.crm.entities.Category;
 import com.clickarte.crm.services.CategoryService;
+import com.clickarte.crm.utils.ControllerUtil;
 import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/category")
 public class CategoryController implements CategoryApi {
 
     private final CategoryService categoryService;
@@ -34,8 +33,8 @@ public class CategoryController implements CategoryApi {
     public ResponseEntity<Category> create(@RequestBody @Valid CreateCategoryDto createCategory,
             UriComponentsBuilder uriComponentsBuilder) {
         var newCategory = categoryService.createCategory(createCategory);
-        var uri = uriComponentsBuilder.path("/category/{id}").buildAndExpand(newCategory.getId())
-                .toUri();
+        var uri =
+                ControllerUtil.getUri(uriComponentsBuilder, "/category/{id}", newCategory.getId());
         return ResponseEntity.created(uri).body(newCategory);
     }
 

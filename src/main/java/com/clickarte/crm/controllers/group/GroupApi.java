@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
-@RequestMapping("group")
+@RequestMapping(value = "/group")
 @Tag(name = "Groups")
 public interface GroupApi {
 
