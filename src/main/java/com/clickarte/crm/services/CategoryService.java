@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.clickarte.crm.dtos.category.CreateCategoryDto;
 import com.clickarte.crm.entities.Category;
 import com.clickarte.crm.repositories.CategoryRepository;
+import com.clickarte.crm.utils.converters.CategoryConverter;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -19,7 +20,7 @@ public class CategoryService {
 
     @Transactional
     public Category createCategory(CreateCategoryDto createCategoryDto) {
-        var createdCategory = new Category(createCategoryDto);
+        var createdCategory = CategoryConverter.createCategoryDtoToCategory(createCategoryDto);
         return categoryRepository.save(createdCategory);
     }
 
