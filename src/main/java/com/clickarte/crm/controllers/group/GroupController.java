@@ -10,6 +10,7 @@ import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Group;
 import com.clickarte.crm.services.GroupService;
 import com.clickarte.crm.utils.ControllerUtil;
+import com.clickarte.crm.utils.constantes.ApiPaths;
 
 
 @RestController
@@ -26,7 +27,7 @@ public class GroupController implements GroupApi {
             UriComponentsBuilder uriComponentsBuilder) {
 
         var group = groupService.create(createGroupCategory);
-        var uri = ControllerUtil.getUri(uriComponentsBuilder, "/group/{id}", group.id());
+        var uri = ControllerUtil.getUri(uriComponentsBuilder, ApiPaths.GROUP_BY_ID, group.id());
         return ResponseEntity.created(uri).body(group);
     }
 

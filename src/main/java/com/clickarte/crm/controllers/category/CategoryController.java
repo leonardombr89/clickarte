@@ -11,6 +11,7 @@ import com.clickarte.crm.dtos.category.CreateCategoryDto;
 import com.clickarte.crm.entities.Category;
 import com.clickarte.crm.services.CategoryService;
 import com.clickarte.crm.utils.ControllerUtil;
+import com.clickarte.crm.utils.constantes.ApiPaths;
 
 
 
@@ -26,7 +27,7 @@ public class CategoryController implements CategoryApi {
 
     public ResponseEntity<Category> create(CreateCategoryDto createCategory,
             UriComponentsBuilder uriComponentsBuilder) {
-        final String path = "/category/{id}";
+        final String path = ApiPaths.CATEGORY_BY_ID;
         var newCategory = categoryService.createCategory(createCategory);
         var uri = ControllerUtil.getUri(uriComponentsBuilder, path, newCategory.getId());
         return ResponseEntity.created(uri).body(newCategory);

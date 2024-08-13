@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
-import com.clickarte.crm.dtos.category.CreateCategoryDto;
 
 
 
@@ -32,12 +31,6 @@ import com.clickarte.crm.dtos.category.CreateCategoryDto;
 @Entity
 @Table(name = "Categories")
 public class Category {
-
-
-    public Category(CreateCategoryDto createCategory) {
-        this.description = createCategory.description();
-        this.name = createCategory.name();
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
