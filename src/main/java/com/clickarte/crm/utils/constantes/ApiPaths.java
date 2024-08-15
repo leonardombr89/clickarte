@@ -1,8 +1,9 @@
 package com.clickarte.crm.utils.constantes;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ApiPaths {
 
     public static final String CATEGORY_BASE_PATH = "category";
