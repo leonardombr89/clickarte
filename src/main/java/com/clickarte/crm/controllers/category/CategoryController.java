@@ -27,9 +27,9 @@ public class CategoryController implements CategoryApi {
 
     public ResponseEntity<Category> create(CreateCategoryDto createCategory,
             UriComponentsBuilder uriComponentsBuilder) {
-        final String path = ApiPaths.CATEGORY_BY_ID;
+
         var newCategory = categoryService.createCategory(createCategory);
-        var uri = ControllerUtil.getUri(uriComponentsBuilder, path, newCategory.getId());
+        var uri = ControllerUtil.getUri(uriComponentsBuilder, ApiPaths.CATEGORY_BY_ID, newCategory.getId());
         return ResponseEntity.created(uri).body(newCategory);
     }
 
