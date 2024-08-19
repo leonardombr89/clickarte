@@ -1,7 +1,9 @@
 package com.clickarte.crm.utils.converters;
 
 
+import com.clickarte.crm.dtos.category.DetailCategoryDto;
 import com.clickarte.crm.dtos.group.CreateGroupCategoryDto;
+import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Category;
 import com.clickarte.crm.entities.Group;
 
@@ -14,5 +16,12 @@ public class GroupConverter {
         group.setCategory(category);
         return group;
 
+    }
+
+    public static DetailGroupDto groupToDetailGroupDto(Group group) {
+
+        return new DetailGroupDto(group.getId(), group.getName(),
+                new DetailCategoryDto(group.getCategory().getId(), group.getCategory().getName(),
+                        group.getCategory().getDescription()));
     }
 }

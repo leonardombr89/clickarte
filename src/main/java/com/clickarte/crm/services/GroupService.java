@@ -27,10 +27,8 @@ public class GroupService {
         var category = categoryService.find(createGroupCategory.categoryId());
         var group = GroupConverter.createGroupDtoToGroup(createGroupCategory, category);
         this.groupRepository.save(group);
-        var response = new DetailGroupDto(group.getId(), group.getName(), new DetailCategoryDto(
-                category.getId(), category.getName(), category.getDescription()));
+        var response = GroupConverter.groupToDetailGroupDto(group);
         return response;
-
 
     }
 
