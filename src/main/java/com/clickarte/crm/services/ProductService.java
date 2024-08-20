@@ -37,21 +37,28 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public DetailProductDto findById(Long id) {
-        var product = this.productRepository.findById(id).orElseThrow();
+    public DetailProductDto findDetailProductById(Long id) {
+        var product = productRepository.findById(id).orElseThrow();
 
         return ProductConverter.productToResponseCreatedProductDto(product);
     }
 
 
+    @Transactional(readOnly = true)
+    public Product findById(Long id) {
+        return productRepository.findById(id).orElseThrow();
+    }
+
+
+
     @Transactional
     public void deleteById(Long id) {
-        this.productRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 
 
     public Page<ListProductDto> findAll(Pageable pageable) {
-        return this.productRepository.findAll(pageable)
+        return productRepository.findAll(pageable)
                 .map(product -> ProductConverter.productToListProductDto(product));
     }
 

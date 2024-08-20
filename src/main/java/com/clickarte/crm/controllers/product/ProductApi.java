@@ -14,7 +14,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.clickarte.crm.dtos.product.CreateProductDto;
 import com.clickarte.crm.dtos.product.DetailProductDto;
 import com.clickarte.crm.dtos.product.ListProductDto;
-import com.clickarte.crm.entities.Product;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;

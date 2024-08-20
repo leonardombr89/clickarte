@@ -9,8 +9,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "ProductPrices")
 public class Price {
         private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
@@ -19,44 +27,5 @@ public class Price {
         private BigDecimal pricePerSquareMeter;
         private @ManyToOne @JoinColumn(name = "product_id", nullable = false) Product product;
 
-        public Long getId() {
-                return id;
-        }
-
-        public void setId(Long id) {
-                this.id = id;
-        }
-
-        public String getIntervalQuantity() {
-                return intervalQuantity;
-        }
-
-        public void setIntervalQuantity(String intervalQuantity) {
-                this.intervalQuantity = intervalQuantity;
-        }
-
-        public BigDecimal getUnitPrice() {
-                return unitPrice;
-        }
-
-        public void setUnitPrice(BigDecimal unitPrice) {
-                this.unitPrice = unitPrice;
-        }
-
-        public BigDecimal getPricePerSquareMeter() {
-                return pricePerSquareMeter;
-        }
-
-        public void setPricePerSquareMeter(BigDecimal pricePerSquareMeter) {
-                this.pricePerSquareMeter = pricePerSquareMeter;
-        }
-
-        public Product getProduct() {
-                return product;
-        }
-
-        public void setProduct(Product product) {
-                this.product = product;
-        }
 
 }
