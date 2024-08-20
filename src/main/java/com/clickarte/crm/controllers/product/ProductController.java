@@ -3,13 +3,11 @@ package com.clickarte.crm.controllers.product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.clickarte.crm.dtos.product.CreateProductDto;
 import com.clickarte.crm.dtos.product.DetailProductDto;
 import com.clickarte.crm.dtos.product.ListProductDto;
-import com.clickarte.crm.entities.Product;
 import com.clickarte.crm.services.ProductService;
 import com.clickarte.crm.utils.ControllerUtil;
 import com.clickarte.crm.utils.constantes.ApiPaths;
@@ -24,7 +22,7 @@ public class ProductController implements ProductApi {
         this.productService = productService;
     }
 
-
+    @Override
     public ResponseEntity<DetailProductDto> create(CreateProductDto createProduct,
             UriComponentsBuilder uriComponentsBuilder) {
 
