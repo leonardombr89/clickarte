@@ -44,7 +44,8 @@ public class GroupService {
     }
 
     public Page<DetailGroupDto> list(Pageable pageable) {
-        var list = groupRepository.findAll(pageable).map(DetailGroupDto::new);
+        var list = groupRepository.findAll(pageable)
+                .map(group -> GroupConverter.groupToDetailGroupDto(group));
         return list;
     }
 
