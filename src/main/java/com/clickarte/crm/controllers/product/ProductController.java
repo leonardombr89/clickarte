@@ -41,7 +41,7 @@ public class ProductController implements ProductApi {
 
     @Override
     public ResponseEntity<DetailProductDto> find(Long id) {
-        return ResponseEntity.ok(productService.findById(id));
+        return ResponseEntity.ok(productService.findDetailProductById(id));
 
     }
 
