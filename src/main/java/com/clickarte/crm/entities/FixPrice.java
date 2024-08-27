@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,9 +28,9 @@ public class FixPrice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    BigDecimal value;
+    private Long id;
+    private BigDecimal value;
+    private @ManyToOne @JoinColumn(name = "product_price_id", nullable = false) Price price;
 
 
 }
