@@ -2,11 +2,7 @@ package com.clickarte.crm.entities;
 
 import java.math.BigDecimal;
 
-import com.clickarte.crm.enums.TypeMetro;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,17 +21,15 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class MetroPrice {
+public class MeterPrice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-    @Enumerated(EnumType.STRING)
-    TypeMetro type;
-
-    BigDecimal price;
-    BigDecimal maxPrice;
+    String type;
+    BigDecimal value;
+    BigDecimal maxValue;
+    BigDecimal minValue;
     BigDecimal maxHeight;
     BigDecimal maxWidth;
 

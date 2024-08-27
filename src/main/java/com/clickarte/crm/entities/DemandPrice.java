@@ -25,7 +25,7 @@ public class DemandPrice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    Integer util;
+    Integer until;
     BigDecimal unitValue;
 
 }

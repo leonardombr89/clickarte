@@ -28,7 +28,7 @@ public class FixPrice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    BigDecimal price;
+    BigDecimal value;
 
 
 }
