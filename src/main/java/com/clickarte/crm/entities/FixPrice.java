@@ -22,7 +22,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 public class FixPrice {
 
 
@@ -31,6 +30,5 @@ public class FixPrice {
     private Long id;
     private BigDecimal value;
     private @ManyToOne @JoinColumn(name = "product_price_id", nullable = false) Price price;
-
 
 }

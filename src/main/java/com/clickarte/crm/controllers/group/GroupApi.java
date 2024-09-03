@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import com.clickarte.crm.dtos.group.CreateGroupCategoryDto;
 import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Group;
+
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -49,7 +51,7 @@ public interface GroupApi {
                                         content = @Content),
                         @ApiResponse(responseCode = "500", description = "Internal server error",
                                         content = @Content)})
-        @GetMapping({"id"})
+        @GetMapping("{id}")
         ResponseEntity<Group> find(@PathVariable(name = "id", required = true) Long id);
 
 
@@ -59,7 +61,7 @@ public interface GroupApi {
                         @ApiResponse(responseCode = "500", description = "Internal server error",
                                         content = @Content)})
 
-        @DeleteMapping({"id"})
+        @DeleteMapping("{id}")
         ResponseEntity<Void> delete(@PathVariable(name = "id", required = true) Long id);
 
         @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Groups listed",

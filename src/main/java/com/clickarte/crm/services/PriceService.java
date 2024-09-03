@@ -5,9 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.clickarte.crm.dtos.price.CreatePriceDto;
 import com.clickarte.crm.dtos.price.DetailPriceDto;
 import com.clickarte.crm.dtos.price.ListPriceDto;
+import com.clickarte.crm.entities.Price;
 import com.clickarte.crm.repositories.PriceRepository;
 import com.clickarte.crm.utils.converters.PriceConverter;
 
@@ -39,6 +41,10 @@ public class PriceService {
     public DetailPriceDto findDetailPriceById(Long id) {
         var price = priceRepository.findById(id).orElseThrow();
         return PriceConverter.priceToDetailPriceDto(price);
+    }
+
+    public Price findById(Long id) {
+        return priceRepository.findById(id).orElseThrow();
     }
 
 

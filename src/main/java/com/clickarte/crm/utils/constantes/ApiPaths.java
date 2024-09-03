@@ -18,6 +18,9 @@ public final class ApiPaths {
     public static final String PRICE_BASE_PATH = "price";
     public static final String PRICE_BY_ID = PRICE_BASE_PATH + "/{id}";
 
+    public static final String FIX_PRICE_BASE_PATH = "fixprice";
+    public static final String FIX_PRICE_BY_ID = FIX_PRICE_BASE_PATH + "/{id}";
+
 
 
 }
