@@ -21,6 +21,9 @@ public final class ApiPaths {
     public static final String FIX_PRICE_BASE_PATH = "fixprice";
     public static final String FIX_PRICE_BY_ID = FIX_PRICE_BASE_PATH + "/{id}";
 
+    public static final String METER_PRICE_BASE_PATH = "meter-prices";
+    public static final String METER_PRICE_BY_ID = METER_PRICE_BASE_PATH + "/{id}";
+
 
 
 }
