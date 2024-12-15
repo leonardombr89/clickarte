@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.clickarte.crm.dtos.category.DetailCategoryDto;
+
 import com.clickarte.crm.dtos.group.CreateGroupCategoryDto;
 import com.clickarte.crm.dtos.group.DetailGroupDto;
 import com.clickarte.crm.entities.Group;
